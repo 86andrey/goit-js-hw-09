@@ -27,7 +27,7 @@ const options = {
 flatpickr(inputDate, options);
 
 btnStart.addEventListener('click', countTimeUntilEnd);
-btnStart.setAttribute('disabled', true);
+btnStart.setAttribute('disabled', false);
 
 function dateSelectedByTheUser(selectDate) {
   if (!btnStart.disabled) {
