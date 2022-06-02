@@ -4,11 +4,13 @@ const formSubmit = document.querySelector('.form');
 const delay = document.querySelector('input[name=delay]');
 const step = document.querySelector('input[name=step]');
 const amount = document.querySelector('input[name=amount]');
+const btn = document.querySelector('button');
 
 formSubmit.addEventListener('submit', onSubmitForm);
 
 function onSubmitForm(event) {
   event.preventDefault();
+  btn.disabled = true;
   const delayStep = Number(step.value);
   let position = 0;
   let delayValue = Number(delay.value);
@@ -27,6 +29,9 @@ function onSubmitForm(event) {
       .catch(onMakeRejected);
     delayValue += delayStep;
   }, delayStep);
+  setTimeout(() => {
+    btn.disabled = false;
+  }, 5000);
 }
 
 function createPromise(position, delay, firstDelay) {
